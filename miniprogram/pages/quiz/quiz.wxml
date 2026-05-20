@@ -1,0 +1,54 @@
+<view class="container" wx:if="{{!loading && !errorMsg}}">
+  <!-- 顶栏：进度、计时、题号 -->
+  <view class="top-bar">
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{progress}}%"></view>
+    </view>
+    <view class="info-row">
+      <text class="question-count">第 {{currentIndex + 1}} / {{total}} 题</text>
+      <text class="timer {{timer <= 5 ? 'timer-warn' : ''}}">{{timer}}s</text>
+      <text class="score-text">得分: {{score}}</text>
+    </view>
+  </view>
+
+  <!-- 题目内容 -->
+  <view class="question-card">
+    <text class="question-text">{{currentQuestion.content}}</text>
+  </view>
+
+  <!-- 选项列表 -->
+  <view class="options-list">
+    <view class="option {{answered ? (currentQuestion.answer === 'A' ? 'correct' : (selectedOption === 'A' ? 'wrong' : '')) : ''}} {{selectedOption === 'A' ? 'selected' : ''}}"
+          wx:for="{{options}}"
+          wx:key="*this"
+          data-option="{{item[0]}}"
+          bindtap="selectOption">
+      <text class="option-letter">{{item[0]}}</text>
+      <text class="option-text">{{item}}</text>
+      <text class="option-icon" wx:if="{{answered}}">
+        {{currentQuestion.answer === item[0] ? '✓' : (selectedOption === item[0] ? '✗' : '')}}
+      </text>
+    </view>
+  </view>
+
+  <!-- 超时提示 -->
+  <view class="timeout-hint" wx:if="{{answered && !selectedOption}}">
+    <text>时间到！</text>
+  </view>
+
+  <!-- 下一题按钮 -->
+  <button class="next-btn" wx:if="{{answered}}" bindtap="nextQuestion">
+    {{currentIndex + 1 < total ? '下一题' : '查看结果'}}
+  </button>
+</view>
+
+<!-- 加载中 -->
+<view class="loading" wx:if="{{loading}}">
+  <text>加载题目中...</text>
+</view>
+
+<!-- 错误信息 -->
+<view class="error-box" wx:if="{{!loading && errorMsg}}">
+  <text class="error-text">{{errorMsg}}</text>
+  <button class="back-btn" bindtap="goBack">返回</button>
+</view>

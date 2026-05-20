@@ -1,0 +1,26 @@
+# Maven build output
+backend/target/
+
+# Compiled Java
+*.class
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if any)
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# WeChat private config
+miniprogram/project.private.config.json
+
+# Logs
+*.log

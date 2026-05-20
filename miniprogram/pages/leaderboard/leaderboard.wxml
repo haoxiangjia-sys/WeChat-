@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="title">排行榜 TOP 20</view>
+
+  <!-- 列表 -->
+  <view class="list" wx:if="{{list.length > 0}}">
+    <view class="item {{index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : ''}}"
+          wx:for="{{list}}"
+          wx:key="id">
+      <view class="rank">
+        <text wx:if="{{index === 0}}">🥇</text>
+        <text wx:elif="{{index === 1}}">🥈</text>
+        <text wx:elif="{{index === 2}}">🥉</text>
+        <text wx:else>{{index + 1}}</text>
+      </view>
+      <view class="info">
+        <text class="nickname">{{item.nickname}}</text>
+        <text class="time">{{item.createdAt}}</text>
+      </view>
+      <view class="score">
+        <text class="score-val">{{item.score}}</text>
+        <text class="score-label">分</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{!loading && list.length === 0}}">
+    <text>还没有人答题，快来挑战吧！</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>

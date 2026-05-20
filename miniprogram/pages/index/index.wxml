@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="header">
+    <text class="title">动漫知识问答</text>
+    <text class="subtitle">测测你是不是真正的二次元</text>
+  </view>
+
+  <view class="card">
+    <text class="label">你的昵称</text>
+    <input class="input"
+           placeholder="请输入昵称"
+           value="{{nickname}}"
+           bindinput="onNicknameInput"
+           maxlength="20"/>
+  </view>
+
+  <button class="start-btn" bindtap="startQuiz">开始答题</button>
+
+  <view class="leaderboard-entry" bindtap="goToLeaderboard">
+    <text class="entry-text">查看排行榜 →</text>
+  </view>
+</view>

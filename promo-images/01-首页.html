@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px; overflow: hidden;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: linear-gradient(160deg, #e8f8e8 0%, #ffffff 50%, #f0fff0 100%);
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+}
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+}
+.bg-circle.c1 { width: 1200px; height: 1200px; background: #1aad19; top: -400px; right: -300px; }
+.bg-circle.c2 { width: 800px; height: 800px; background: #1aad19; bottom: -200px; left: -200px; }
+
+.logo-area { margin-top: 200px; z-index: 1; text-align: center; }
+.logo-icon {
+  width: 200px; height: 200px; background: linear-gradient(135deg, #1aad19, #2ecc40);
+  border-radius: 44px; margin: 0 auto 50px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 30px 60px rgba(26,173,25,0.3);
+}
+.logo-icon span { font-size: 100px; color: #fff; }
+.app-name {
+  font-size: 96px; font-weight: 900; color: #1aad19;
+  letter-spacing: 10px; margin-bottom: 30px;
+}
+.app-slogan {
+  font-size: 42px; color: #666; letter-spacing: 6px;
+}
+
+.features { margin-top: 150px; z-index: 1; display: flex; flex-direction: column; gap: 50px; }
+.feature {
+  display: flex; align-items: center; gap: 40px;
+  background: #fff; border-radius: 36px; padding: 40px 60px;
+  width: 800px; box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+.feature-icon {
+  width: 100px; height: 100px; border-radius: 28px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52px; flex-shrink: 0;
+}
+.feature-icon.blue { background: #e8f4fd; }
+.feature-icon.orange { background: #fef5e7; }
+.feature-icon.purple { background: #f3e8ff; }
+.feature-text h3 { font-size: 40px; color: #333; margin-bottom: 12px; }
+.feature-text p { font-size: 30px; color: #999; }
+
+.footer { margin-top: auto; padding: 60px; z-index: 1; }
+.footer text { font-size: 28px; color: #ccc; }
+</style>
+</head>
+<body>
+<div class="bg-circle c1"></div>
+<div class="bg-circle c2"></div>
+
+<div class="logo-area">
+  <div class="logo-icon"><span>?</span></div>
+  <div class="app-name">答题挑战</div>
+  <div class="app-slogan">每天十分钟 · 知识大不同</div>
+</div>
+
+<div class="features">
+  <div class="feature">
+    <div class="feature-icon blue">📚</div>
+    <div class="feature-text">
+      <h3>海量题库</h3>
+      <p>涵盖Java、网络、数据库等多领域知识</p>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon orange">⏱️</div>
+    <div class="feature-text">
+      <h3>限时挑战</h3>
+      <p>每题15秒倒计时，锻炼快速反应力</p>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon purple">🏆</div>
+    <div class="feature-text">
+      <h3>排行榜PK</h3>
+      <p>与好友比拼分数，争夺榜首荣耀</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer"><text>扫码即刻开始挑战</text></div>
+</body>
+</html>
